@@ -1,4 +1,4 @@
-package src.Work;
+package src.WorkPolling;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -29,6 +29,7 @@ public class WorSend {
 
         for(int i=0;i<50;i++){
             String msg="work"+i;
+            System.out.println("send 已经发送"+msg);
             channel.basicPublish("",Queue_Name,null,msg.getBytes());
             Thread.sleep(i*20);
         }
